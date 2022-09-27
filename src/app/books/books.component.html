@@ -1,0 +1,34 @@
+<p>programming books</p>
+
+<button (click)="isshowing = !isshowing">toggle</button>
+
+<button (click)="handleclick()" [disabled]="isdisabled">disable buttons</button>
+<p></p>
+
+<button (click)="togglebook()" [disabled]="isdisabled">
+    <ng-container *ngIf="!isshowing">show books</ng-container>
+    <ng-container *ngIf="isshowing">hide books</ng-container>
+</button>
+<p></p>
+
+<input type="text" (input)="handleinput($event)">
+<p>{{myName}}</p>
+
+<input type="text" [(ngModel)]="myName2">
+<p>{{myName2}}</p>
+
+<ul *ngIf="isshowing">
+
+    <ng-container *ngFor="let singlebook of books; let i = index">
+        <app-book (bookEmitter)="addtocart($event)" [book] = "singlebook"></app-book> 
+    </ng-container>
+    
+    <!-- <li>
+        <img [src]="src" [alt]="name">
+        {{name}} by {{author}}
+    </li>
+    <li>
+        <img src={{src2}} alt="{{name2}}">
+        {{name2}} by {{author2}}
+    </li> -->
+</ul>

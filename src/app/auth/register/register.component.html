@@ -1,0 +1,23 @@
+<div class="flex h-screen justify-center">
+    <form (ngSubmit)="submit_register()" class="p-4 rounded-lg border m-auto w-1/3">
+        <h1 class="text-center text-xl"></h1>
+        <div class="my-5 w-full">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="p-2 rounded w-full border" 
+            placeholder="email address" [(ngModel)] = "form_register.email" name="email" >
+        </div>
+        <div class="my-5 w-full">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="p-2 rounded w-full border" 
+            placeholder="password" [(ngModel)] = "form_register.password" name="password">
+        </div>
+        <div class="my-5 w-full">
+            <label for="confirm_password">Confirm Password</label>
+            <input type="confirm_password" id="confirm_password" class="p-2 rounded w-full border" 
+            placeholder="confirm password" [(ngModel)]="form_register.confirm_password" name="confirm_password">
+        </div>
+        <div class="my-5 w-full">
+            <input type="submit" class="p-2 w-full bg-orange-700 text-white rounded w-full border">
+        </div>
+    </form>
+</div>
