@@ -8,16 +8,24 @@
 </head>
 <body>
   <!-- <h1>welcome to angular course</h1> -->
-  <!-- <app-books></app-books>
-  <app-cart></app-cart> -->
+  <!-- <app-books></app-books> -->
+  <!-- <app-cart></app-cart> -->
   <nav class="flex justufy- between p-4 bg-blue-800 text-white">
     <div>
       <a routerLink="/">Book shop</a>
     </div>
     <div>
       <a class="mx-4" routerLink="/cart">My Cart</a>
-      <a class="mx-4" routerLink="/login">Login</a>
-      <a class="mx-4" routerLink="/register">Register</a>
+      <ng-container *ngIf="!isAuthenticated()">
+        <a class="mx-4" routerLink="/login">Login</a>
+        <a class="mx-4" routerLink="/register">Register</a>
+      </ng-container >
+      <ng-container *ngIf="isAuthenticated()">
+        <button (click)="logout()" class="mx-4">Logout</button>
+      </ng-container>
+
+      
+
     </div>
   </nav>
   <div class="p-4">

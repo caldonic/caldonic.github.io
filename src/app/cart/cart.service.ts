@@ -7,6 +7,8 @@ import { Book } from '../types/Book';
 export class CartService {
 
   cart : Array<Book> = [];
+  
+
 
   constructor() { }
 

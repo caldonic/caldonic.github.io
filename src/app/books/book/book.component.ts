@@ -11,21 +11,27 @@ export class BookComponent implements OnInit, OnDestroy {
 
   @Input() book: Book = {} as any;
   @Output() bookEmitter = new EventEmitter<Book>();
+  @Output() quantityEmitter = new EventEmitter();
+
+  quantity : number = 0;
+
 
   isInCart: boolean = false;
 
-  addtocart(){
+  addtocart(event: any){
     this.bookEmitter.emit(this.book);
     this.cartService.add(this.book);
     this.isInCart = true;
+    console.log(100, this.quantity);
+    this.quantityEmitter.emit(this.quantity);
   }
 
   myinterval:any = null;
 
   constructor(private cartService: CartService) { 
-    this.myinterval = setInterval(() => {
-      console.log('Hello');
-    }, 1000);
+    // this.myinterval = setInterval(() => {
+    //   console.log('Hello');
+    // }, 1000);
   }
 
   ngOnInit(): void {
@@ -41,5 +47,10 @@ export class BookComponent implements OnInit, OnDestroy {
     this.isInCart = false;
     this.cartService.remove(this.book);
   }
+
+  handlequantity(event:any){
+    this.quantity=event.target.value;
+  }
+
 
 }

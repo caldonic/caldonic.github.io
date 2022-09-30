@@ -1,8 +1,15 @@
-<p>programming books</p>
 
-<button (click)="isshowing = !isshowing">toggle</button>
 
-<button (click)="handleclick()" [disabled]="isdisabled">disable buttons</button>
+<button (click)="handleclick()" >
+    <ng-container *ngIf="!isdisabled">disable button</ng-container>
+    <ng-container *ngIf="isdisabled">enable button</ng-container>
+</button>
+
+<p></p>
+
+<!-- <button (click)="isshowing = !isshowing" [disabled]="isdisabled">toggle</button> -->
+
+
 <p></p>
 
 <button (click)="togglebook()" [disabled]="isdisabled">
@@ -11,10 +18,10 @@
 </button>
 <p></p>
 
-<input type="text" (input)="handleinput($event)">
+<input type="text" (input)="handleinput($event)" placeholder="one way binding">
 <p>{{myName}}</p>
 
-<input type="text" [(ngModel)]="myName2">
+<input type="text" [(ngModel)]="myName2" placeholder="two way binding">
 <p>{{myName2}}</p>
 
 <ul *ngIf="isshowing">

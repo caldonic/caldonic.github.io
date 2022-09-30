@@ -3,11 +3,4 @@ ul{
     flex-wrap: wrap;
 }
 
-li{
-    list-style: none;
-    text-overflow: ellipsis;
-    width: 350px;
-    text-align: center;
-    cursor: pointer;
 
-}

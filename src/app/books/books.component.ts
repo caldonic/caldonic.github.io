@@ -25,15 +25,16 @@ export class BooksComponent implements OnInit {
 
   handleclick() {
     this.isdisabled = !this.isdisabled;
+    console.log(this);
   }
 
   handleinput(event: any) {
     this.myName = event.target.value;
   }
 
-  myName: string = "one way binding";
+  myName: string = "";
 
-  myName2: string = "two way binding";
+  myName2: string = "";
 
   isshowing: boolean = true;
 
